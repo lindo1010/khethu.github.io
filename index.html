@@ -13,8 +13,29 @@
       integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
       crossorigin="anonymous"
     />
+    <link href="https://fonts.googleapis.com/css?family=Psoppins%26display=swap" rel="stylesheet">
   </head>
   <body> 
+    <nav class="navbar">
+      <div class="content">
+        <div class="logo">
+          <a href="#main">Khethu</a>
+        </div>
+        <ul class="menu-list">
+          <div class="icon cancel-btn">
+            <i class="fas fa-times"></i>
+          </div>
+          <li><a href="#main">Home</a></li>
+          <li><a href="#Skills">Skills</a></li>
+          <li><a href="#About">About</a></li>
+          <li><a href="#Projects">Projects</a></li>
+          <li><a href="#contact-form">Contact</a></li>
+        </ul>
+        <div class="icon menu-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
     <section id="main" class="center">
       <div id="particles-js"></div>
       <div class="user_info">
@@ -201,48 +222,27 @@
       </div>
     </footer>
 
-    <!-- Toggle -->
-    <div class="toggle center active" id="toggle">
-      <div class="box center">
-          <a href="#main" class="links center"> 
-            <i class="fas fa-home"></i>
-            <p>Home</p>
-          </a>
-      </div>
-      <div class="box center">
-          <a href="#About" class="links center"> 
-            <i class="fas fa-address-card"></i>
-            <p>About</p>
-          </a>
-        <input type="checkbox" name="" id="btn" />
-          <a href="#Skills" class="links center"> 
-            <i class="fas fa-sliders-h"></i>
-            <p>Skills</p>
-          </a>
-      </div>
-      <div class="box">
-          <a href="#Projects" class=" links center"> 
-            <i class="fas fa-tasks"></i>
-            <p>Projects</p>
-          </a>
-      </div>
-    </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <script src="js/particles.js"></script>
+    <!--<script src="js/script.js"></script>-->
     <script>
-      const toggle = document.getElementById("toggle");
-      const btn = document.getElementById("btn");
-      const links = document.querySelectorAll(".links");
-
-      btn.addEventListener("click", (e) => {
-        toggle.classList.toggle("active");
-      });
-      links.forEach((e) => {
-        e.addEventListener("click", () => {
-        toggle.classList.toggle("active");
-        })
-      });
+      const body = document.querySelector("body");
+      const navbar = document.querySelector(".navbar");
+      const menuBtn = document.querySelector(".menu-btn");
+      const cancelBtn = document.querySelector(".cancel-btn");
+      menuBtn.onclick = ()=>{
+        navbar.classList.add("show");
+        menuBtn.classList.add("hide");
+        body.classList.add("disabled");
+      }
+      cancelBtn.onclick = ()=>{
+        body.classList.remove("disabled");
+        navbar.classList.remove("show");
+        menuBtn.classList.remove("hide");
+      }
+      window.onscroll = ()=>{
+        this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+      }
     </script>
   </body>
 </html>
