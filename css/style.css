@@ -176,7 +176,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  cursor: pointer;
+  cursor: default;
   position: relative;
   z-index: 1;
 }
